@@ -1,0 +1,164 @@
+
+/* ----- Custom properties (Tokens) ----- */
+
+:root {
+  /* Colors */
+
+  /* Brand colors */
+  --color-brand: #fb76a2;
+  /* Action colors */
+  --color-action-primary: #d4bcf4;
+  --color-action-secondary: #8dd1b5;
+  /* Boolean colors */
+  --color-affirmative-primary: #11922f;
+  --color-affirmative-secondary: #61ab72;
+  --color-negative-primary: #FF7272;
+  --color-negative-secondary: #EE0000;
+  /* Gray colors */
+  --color-light: #F8F9FA;
+  --color-light-gray: #E9ECEF;
+  --color-gray: #DEE2E6;
+  --color-dark: #343A40;
+  --color-darker: #212529;
+  
+  
+  /* Fonts */
+  --font-family-heading: 'Fredoka';
+  --font-family-body: 'Fredoka';
+  
+  --font-weight-thin: 100;
+  --font-weight-extra-light: 200;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extra-bold: 800;
+  --font-weight-heavy: 900;
+
+  --font-size-XXL: 4rem;
+  --font-size-XL: 3.2rem;
+  --font-size-L: 2.4rem;
+  --font-size-M: 2rem;
+  --font-size-S: 1.6rem;
+  --font-size-XS: 1.2rem;
+  
+
+  /* Spacing */
+  --spacing-min-unit: 0.4rem;
+
+  --spacing-XS: calc(var(--spacing-min-unit) * 1);
+  --spacing-S: calc(var(--spacing-min-unit) * 2);
+  --spacing-M: calc(var(--spacing-min-unit) * 4);
+  --spacing-L: calc(var(--spacing-min-unit) * 6);
+  --spacing-XL: calc(var(--spacing-min-unit) * 8);
+  --spacing-XXL: calc(var(--spacing-min-unit) * 10);
+  
+  
+  /* Borders */
+  --border-style: solid;
+  --border-width: 0.2rem;
+  --border-sharp: 0;
+  --border-rounded: var(--spacing-S);
+  --border-round: var(--spacing-L);
+  
+  --border-radius-standard: var(--border-round);
+}
+
+/* Responsive measures */
+
+@media (max-width: 768px) {
+  :root {
+    --responsive-multiplier-unit: 0.75;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  :root {
+    --responsive-multiplier-unit: 0.875;
+  }
+}
+@media (min-width: 992px) {
+  :root {
+    --responsive-multiplier-unit: 1;
+  }
+}
+html {
+  font-size: calc(62.5% * var(--responsive-multiplier-unit));
+}
+
+.light-mode {
+  /* Background colors */
+  --color-background-primary: var(--color-light);
+  --color-background-secondary: var(--color-light-gray);
+  /* Text colors */
+  --color-text: var(--color-darker);
+  --color-light-text: var(--color-dark);
+  /* Action colors */
+  --color-action-default: var(--color-action-primary);
+  --color-action-active: var(--color-action-secondary);
+  /* Border colors */
+  --border-color: var(--color-gray);
+  --border-standard: var(--border-style) var(--border-width) var(--border-color);
+}
+
+
+/* RESET CSS */
+/* This Reset CSS is based on Eduardo Fierro's Reset CSS. For more information, watch the next video: https://www.youtube.com/watch?v=Foieq2jTajE&ab_channel=EduardoFierro */
+* {
+  border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+img, picture, video, iframe, figure {
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+}
+a {
+  display: block;
+  text-decoration: none;
+}
+p a {
+  display: inline;
+}
+li {
+  list-style-type: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+  font-size: 1em;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+blockquote::before, blockquote::after, q::before, q::after {
+  content: '';
+}
+::selection {
+  background-color: var(--color-brand);
+  color: var(--color-text);
+}
+form, input, textarea, select, button, label {
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  font-family: inherit;
+  font-size: inherit;
+  hyphens: auto;
+}
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body {
+  background-color: var(--color-background-primary);
+  color: var(--color-text);
+  font-family: var(--font-family-body);
+  font-size: 100%;
+  min-height: 100vh;
+}
