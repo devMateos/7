@@ -8,11 +8,17 @@ const props = defineProps({
   },
   body: {
     type: String,
+  },
+  openModal: {
+    type: Boolean,
   }
 });
-
 const imgURL = `src/assets/img/${props.img}`;
-console.log(props.img);
+
+const emit = defineEmits(['closeModal']);
+const closeModal = () => {
+  emit("closeModal", false)
+}
 </script>
 
 <template>
@@ -20,12 +26,12 @@ console.log(props.img);
       <div class="modal__content py-M px-XL">
         <div class="modal__info">
           <img :src="imgURL" alt="">
-          <div class="modal__text">
-            <!-- <h3 class="my-L">{{ props.heading }}</h3> -->
-            <h3 class="mt-M">{{ props.body }}</h3>
-          </div>
+          <h3>{{ props.body }}</h3>
+          <!-- <div class="modal__text">
+            <h3 class="my-L">{{ props.heading }}</h3>
+          </div> -->
         </div>
-        <img class="modal__close-icon" src="@/assets/icons/close-icon.svg" alt="cerrar">
+        <img class="modal__close-icon" src="@/assets/icons/close-icon.svg" alt="cerrar" @click="closeModal">
       </div>
     </div>
 </template>
@@ -50,7 +56,7 @@ console.log(props.img);
   content: '';
   height: 100%;
   left: 0;
-  opacity: .5;
+  opacity: .8;
   top: 0;
   position: absolute;
   width: 100%;
@@ -62,6 +68,7 @@ console.log(props.img);
   border-radius: var(--border-radius-standard);
   display: flex;
   height: 100%;
+  max-height: 750px;
   max-width: 100%;
   position: relative;
 }
@@ -71,9 +78,11 @@ console.log(props.img);
   position: absolute;
 }
 .modal__info {
+  align-items: center;
   display: flex;
   gap: var(--spacing-XL);
   height: 100%;
+  justify-content: space-evenly;
   width: 100%;
 }
 .modal__info > img {
@@ -82,5 +91,8 @@ console.log(props.img);
   object-fit: fill;
   max-height: 100%;
   max-width: 100%;
+}
+.modal__info > h3 {
+  max-width: 600px;
 }
 </style>

@@ -23,6 +23,7 @@ let openModal = reactive({
     :img="'beer-photo.webp'"
     :heading="'Título de ejemplo'"
     :body="'Lorem ipsum dolor sit, amet consectetur adipisicing elit. At inventore similique iure dignissimos, accusamus adipisci maxime neque voluptatem dolor quibusdam cum corrupti unde vel numquam, tenetur magnam saepe autem consequuntur.'"
+    @closeModal="openModal.beer = false"
   />
 </template>
 
