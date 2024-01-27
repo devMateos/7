@@ -84,7 +84,7 @@ console.log(today);
     display: flex;
     gap: var(--spacing-L);
     flex-direction: column;
-    max-width: 350px;
+    max-width: 500px;
     position: relative;
   }
   .landscape form * {
