@@ -73,15 +73,15 @@ h5, .h5 {
   max-width: 16rem;
   padding: var(--spacing-XS) var(--spacing-M);
 }
-.button--primary {
-  background-color: var(--color-action-default);
-  border-color: var(--color-action-default);
-  color: var(--color-light);
-}
 .button--primary:hover {
-  background-color: var(--color-action-active);
-  border-color: var(--color-action-active);
-  color: var(--color-light);
+  background-color: var(--color-action-secondary);
+  border-color: var(--color-action-secondary);
+  color: var(--color-action-light);
+}
+.button--primary {
+  background-color: var(--color-action-primary);
+  border-color: var(--color-action-primary);
+  color: var(--color-action-light);
 }
 .button--secondary {
   background-color: var(--color-background-primary);
@@ -148,6 +148,7 @@ h5, .h5 {
   background-color: var(--color-background-primary);
   border: var(--border-standard);
   border-radius: var(--border-radius-standard);
+  color: var(--color-text);
   font-family: var(--font-family-body);
   outline: none;
   padding: var(--spacing-XS) var(--spacing-S);
@@ -165,7 +166,7 @@ h5, .h5 {
   width: var(--font-size-XXL);
 }
 .form__input-item:focus, .form__input-color:focus {
-  border-color: var(--color-affirmative-primary);
+  border-color: var(--color-brand);
 }
 .form__input-item:disabled, .form__input-color:disabled {
   background-color: var(--color-dark);

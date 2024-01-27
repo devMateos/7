@@ -57,7 +57,7 @@
   
   /* Borders */
   --border-style: solid;
-  --border-width: 0.2rem;
+  --border-width: 0.3rem;
   --border-sharp: 0;
   --border-rounded: var(--spacing-S);
   --border-round: var(--spacing-L);

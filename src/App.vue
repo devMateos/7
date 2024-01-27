@@ -1,10 +1,14 @@
 <script setup>
-import InitialView from './views/InitialView.vue';
+import InitialView from '@/views/InitialView.vue';
 
+
+const password = "sunflower";
 </script>
 
 <template>
-  <InitialView/>
+  <InitialView
+    :password="password"
+  />
 </template>
 
 <style>
