@@ -25,7 +25,7 @@ const closeModal = () => {
     <div class="modal p-L">
       <div class="modal__content py-M px-XL">
         <div class="modal__info">
-          <img :src="props.img" alt="">
+          <img src="@/assets/img/beer-photo.webp" alt="">
           <h3>{{ props.body }}</h3>
           <!-- <div class="modal__text">
             <h3 class="my-L">{{ props.heading }}</h3>
