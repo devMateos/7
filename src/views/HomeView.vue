@@ -1,21 +1,20 @@
 <script setup>
 import SplashScreen from './SplashScreen.vue';
-import FirstScenery from '@/components/FirstScenery/Index.vue';
 import { defineAsyncComponent } from 'vue'
 
-/* const HomeView = defineAsyncComponent(() => {
+const Main = defineAsyncComponent(() => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(import("./views/HomeView.vue"));
+      resolve(import("@/components/Main.vue"));
     }, 4000);
   })
-}) */
+})
 
 </script>
 <template>
   <Suspense>
     <template #default>
-      <FirstScenery/>
+      <Main/>
     </template>
     <template #fallback>
       <SplashScreen/>

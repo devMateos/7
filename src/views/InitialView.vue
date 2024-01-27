@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
 const props = defineProps({
   password: {
@@ -13,8 +13,6 @@ const februarySeventh = new Date("01-07-2024");
 let passwordEntered = ref();
 let access = ref();
 const checkAccess = ref(() => {
-  console.log(passwordEntered.value);
-
   if (today < februarySeventh) {
     access.value = "too soon";
   } else {
@@ -24,18 +22,19 @@ const checkAccess = ref(() => {
       access.value = "right password";
     }
   }
-  console.log(access.value);
 });
-console.log(today);
+
+const emit = defineEmits(['grantAccess']);
+watch(access, (newValue, oldValue) => {
+  if (newValue === 'right password') {
+    emit('grantAccess');
+  }
+});
+
 </script>
 
 <template>
-  <div class="portrait bg-brand p-XXL text-light">
-    <img src="@/assets/animations/rotate-phone.webp" alt="Gira tu teléfono o amplía la ventana">
-    <span class="h2">Gira tu teléfono o amplía la ventana</span>
-  </div>
-
-  <div class="landscape bg-brand p-XXL text-light">
+  <div class="initial-view bg-brand p-XXL text-light">
     <form>
       <label class="h2">Introduce la contraseña:</label>
       <div class="password-container">
@@ -44,63 +43,38 @@ console.log(today);
       </div>
       <p v-show="access === 'wrong password'">Contraseña equivocada</p>
       <p v-show="access === 'too soon'">Aún es pronto. Espera hasta el 7 de febrero 😉</p>
-      <p v-show="access === 'right password'">Contraseña correcta</p>
     </form>
   </div>
 </template>
 
 <style scoped>
-@media (orientation: portrait) {
-  .portrait {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
-    text-align: center;
-    width: 100vw;  
-  }
-  .portrait * {
-    max-width: 80%;
-  }
-
-  .landscape {
-    display: none;
-  }
+.initial-view {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
 }
-
-@media (orientation: landscape) {
-  .portrait {
-    display: none;
-  }
-  .landscape {
-    align-items: center;
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    width: 100vw;
-  }
-  .landscape form {
-    display: flex;
-    gap: var(--spacing-L);
-    flex-direction: column;
-    max-width: 500px;
-    position: relative;
-  }
-  .landscape form * {
-    width: 100%;
-  }
-  .password-container {
-    display: flex;
-    gap: var(--spacing-S);
-  }
-  .password-container button {
-    width: 100px;
-  }
-  form > p {
-    top: 110%;
-    position: absolute;
-  }
+.initial-view form {
+  display: flex;
+  gap: var(--spacing-L);
+  flex-direction: column;
+  max-width: 500px;
+  position: relative;
+}
+.initial-view form * {
+  width: 100%;
+}
+.password-container {
+  display: flex;
+  gap: var(--spacing-S);
+}
+.password-container button {
+  width: 100px;
+}
+form > p {
+  top: 110%;
+  position: absolute;
 }
 
 </style>

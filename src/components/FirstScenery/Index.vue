@@ -44,19 +44,4 @@ let beerClicked = ref(false);
   position: absolute;
   top: 45%;
 }
-
-.click-this{
-  animation: clickThis 1.5s ease infinite;
-}
-@keyframes clickThis {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(.8);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
 </style>
