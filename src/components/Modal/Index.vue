@@ -13,7 +13,7 @@ const props = defineProps({
     type: Boolean,
   }
 });
-const imgURL = `src/assets/img/${props.img}`;
+const imgURL = `@/assets/img/${props.img}`;
 
 const emit = defineEmits(['closeModal']);
 const closeModal = () => {
