@@ -164,7 +164,7 @@ body {
 }
 
 .click-this{
-  animation: clickThis 1.5s ease infinite;
+  animation: clickThis 1.8s ease infinite;
 }
 @keyframes clickThis {
   0% {

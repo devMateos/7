@@ -1,11 +1,26 @@
 <script setup>
 import Beach from "@/components/Scenery/Beach.vue"
+import Travel from "./Scenery/Travel.vue";
 /* import NavMenu from "@/components/NavMenu.vue" */
+
+import { ref } from 'vue'
+let sceneryActive = ref('');
+sceneryActive.value = 'beach'
+const changeScenery = (i) => {
+  sceneryActive.value = i;
+}
+
 </script>
 
 <template>
   <div>
-    <Beach/>
+    <Beach
+      v-if="sceneryActive === 'beach'"
+      @changeScenery="changeScenery"
+    />
+    <Travel
+      v-if="sceneryActive === 'travel'"      
+    />
   </div>
     <!-- <NavMenu/> -->
 </template>
@@ -20,7 +35,6 @@ import Beach from "@/components/Scenery/Beach.vue"
 }
 .scenery__content {
   aspect-ratio: 1.78 / 1;
-  background-image: url("/assets/img/beach-background.webp");
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: var(--border-radius-standard);

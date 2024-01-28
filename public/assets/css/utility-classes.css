@@ -750,3 +750,7 @@
 .border-round {
   border-radius: var(--border-round);
 }
+
+.d-none {
+  display: none;
+}
