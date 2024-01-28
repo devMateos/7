@@ -63,4 +63,8 @@ const changeScenery = () => {
   position: absolute;
   bottom: 10%;
 }
+
+.d-none {
+  display: none;
+}
 </style>
