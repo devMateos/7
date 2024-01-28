@@ -37,10 +37,10 @@ const closeModal = () => {
           <video autoplay loop muted playsinline class="modal__video" v-if="props.video" alt="">
             <source :src="videoPath">
           </video>
-          <h3>{{ props.body }}</h3>
-          <!-- <div class="modal__text">
-            <h3 class="my-L">{{ props.heading }}</h3>
-          </div> -->
+          <div class="modal__text">
+            <h2 class="my-L">{{ props.heading }}</h2>
+            <h3>{{ props.body }}</h3>
+          </div>
         </div>
         <img class="modal__close-icon custom-cursor" src="/assets/icons/close-icon.svg" alt="cerrar" @click="closeModal">
       </div>
@@ -103,7 +103,7 @@ const closeModal = () => {
   max-height: 100%;
   max-width: 100%;
 }
-.modal__info > h3 {
+.modal__text {
   max-width: 600px;
 }
 </style>

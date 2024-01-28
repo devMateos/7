@@ -17,21 +17,21 @@ let openModal = reactive({
   <div class="scenery__container bg-action-secondary p-L">
     <div class="scenery__content">
       <img :class="{ 'beer-can':true, 'custom-cursor':true, 'click-this': beerClicked === false }" src="/assets/icons/beer-can.svg" alt="" @click="beerClicked = true; openModal.beer = true;">
-      <img :class="{ 'pizza':true, 'custom-cursor':true, 'click-this': beerClicked === true }" src="/assets/icons/pizza.svg" alt="" @click="pizzaClicked = true; openModal.pizza = true;">
+      <img :class="{ 'pizza':true, 'custom-cursor':true, 'click-this': beerClicked === true && pizzaClicked === false }" src="/assets/icons/pizza.svg" alt="" @click="pizzaClicked = true; openModal.pizza = true;">
     </div>
   </div>
   <Modal
     :class="{ 'd-none': openModal.beer === false }"
     :img="'beer-photo.webp'"
-    :heading="'Título de ejemplo'"
-    :body="'Lorem ipsum dolor sit, amet consectetur adipisicing elit. At inventore similique iure dignissimos, accusamus adipisci maxime neque voluptatem dolor quibusdam cum corrupti unde vel numquam, tenetur magnam saepe autem consequuntur.'"
+    :heading="'Por todos esos momentos...'"
+    :body="'Esto es un pequeño homenaje a un año repleto de momentos muy especiales juntos. Por esos días de playa y cervezas, por esos ratos bailando en la arena y por todas las comidas escuchando las olas de fondo'"
     @closeModal="openModal.beer = false"
   />
   <Modal
     :class="{ 'd-none': openModal.pizza === false }"
     :video="'beach-video.mp4'"
-    :heading="'Título de ejemplo'"
-    :body="'Lorem ipsum dolor sit, amet consectetur adipisicing elit. At inventore similique iure dignissimos, accusamus adipisci maxime neque voluptatem dolor quibusdam cum corrupti unde vel numquam, tenetur magnam saepe autem consequuntur.'"
+    :heading="'...y por los que quedan'"
+    :body="'Pero también es un homenaje a todos los momentos que nos quedan por vivir. Por eso quiero volver a tener la cita perfecta contigo: yo pongo las pizzas, tú la cerveza y vámonos a la playa cuando haga buen tiempo 😎'"
     @closeModal="openModal.pizza = false"
   />
 </template>

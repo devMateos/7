@@ -16,6 +16,7 @@
   flex-direction: column;
   height: 100vh;
   justify-content: center;
+  text-align: center;
   width: 100vw;
 }
 .loader {
