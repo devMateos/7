@@ -42,7 +42,7 @@ const closeModal = () => {
             <h3 class="my-L">{{ props.heading }}</h3>
           </div> -->
         </div>
-        <img class="modal__close-icon" src="/assets/icons/close-icon.svg" alt="cerrar" @click="closeModal">
+        <img class="modal__close-icon custom-cursor" src="/assets/icons/close-icon.svg" alt="cerrar" @click="closeModal">
       </div>
     </div>
 </template>

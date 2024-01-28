@@ -1,6 +1,21 @@
 
 /* ATOMS */
 
+/* Cursor */
+html {
+  cursor: url("/assets/cursor/default.png"), default;
+  height: 100%;
+}
+html:active {
+  cursor: url("/assets/cursor/click.png"), default;
+}
+a, .button, .custom-cursor {
+  cursor: url("/assets/cursor/pointer.png"), pointer;
+}
+a:active, .button:active, .custom-cursor:active {
+  cursor: url("/assets/cursor/pointer.png"), pointer;
+}
+
 /* Spacing */
 main {
   padding: 0 var(--spacing-XL);
@@ -160,7 +175,6 @@ h5, .h5 {
   appearance: auto;
   border: var(--border-standard);
   border-radius: var(--border-radius-standard);
-  cursor: pointer;
   height: var(--font-size-XXL);
   padding: 0;
   width: var(--font-size-XXL);
@@ -186,7 +200,6 @@ h5, .h5 {
   background-color: var(--color-negative-primary);
   border: var(--border-style) var(--border-width) var(--color-negative-secondary);
   border-radius: var(--border-radius-standard);
-  cursor: pointer;
   height: var(--spacing-M);
   width: var(--spacing-M);
 }
