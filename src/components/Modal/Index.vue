@@ -5,6 +5,9 @@ const props = defineProps({
   img: {
     type: String,
   },
+  video: {
+    type: String,
+  },
   heading: {
     type: String,
   },
@@ -17,7 +20,7 @@ const props = defineProps({
 });
 
 let imgPath = ref(`/assets/img/${props.img}`);
-console.log(imgPath);
+let videoPath = ref(`/assets/img/${props.video}`);
 
 const emit = defineEmits(['closeModal']);
 const closeModal = () => {
@@ -29,7 +32,11 @@ const closeModal = () => {
     <div class="modal p-L">
       <div class="modal__content py-M px-XL">
         <div class="modal__info">
-          <img :src="imgPath" alt="">
+
+          <img v-if="props.img" :src="imgPath" alt="">
+          <video autoplay loop muted playsinline class="modal__video" v-if="props.video" alt="">
+            <source :src="videoPath">
+          </video>
           <h3>{{ props.body }}</h3>
           <!-- <div class="modal__text">
             <h3 class="my-L">{{ props.heading }}</h3>
@@ -89,7 +96,7 @@ const closeModal = () => {
   justify-content: space-evenly;
   width: 100%;
 }
-.modal__info > img {
+.modal__info > img, .modal__video {
   border-radius: var(--border-radius-standard);
   box-shadow: 0px 0px 8px var(--color-action-secondary);
   object-fit: fill;
