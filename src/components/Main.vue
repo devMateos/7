@@ -20,7 +20,7 @@ import Beach from "@/components/Scenery/Beach.vue"
 }
 .scenery__content {
   aspect-ratio: 1.78 / 1;
-  background-image: url("/public/assets/img/beach-background.webp");
+  background-image: url("/assets/img/beach-background.webp");
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: var(--border-radius-standard);

@@ -1,4 +1,6 @@
 <script setup>
+import { ref } from 'vue'
+
 const props = defineProps({
   img: {
     type: String,
@@ -14,6 +16,8 @@ const props = defineProps({
   }
 });
 
+let imgPath = ref(`/assets/img/${props.img}`);
+console.log(imgPath);
 
 const emit = defineEmits(['closeModal']);
 const closeModal = () => {
@@ -25,13 +29,13 @@ const closeModal = () => {
     <div class="modal p-L">
       <div class="modal__content py-M px-XL">
         <div class="modal__info">
-          <img :src="`/public/assets/img/${props.img}`" alt="">
+          <img :src="imgPath" alt="">
           <h3>{{ props.body }}</h3>
           <!-- <div class="modal__text">
             <h3 class="my-L">{{ props.heading }}</h3>
           </div> -->
         </div>
-        <img class="modal__close-icon" src="/public/assets/icons/close-icon.svg" alt="cerrar" @click="closeModal">
+        <img class="modal__close-icon" src="/assets/icons/close-icon.svg" alt="cerrar" @click="closeModal">
       </div>
     </div>
 </template>
