@@ -18,7 +18,7 @@ const changeScenery = () => {
 </script>
 
 <template>
-  <div class="scenery__container bg-action-secondary p-L">
+  <div class="scenery__container bg-action-primary p-L">
     <div class="scenery__content">
       <!-- <img :class="{ 'beer-can':true, 'custom-cursor':true, 'click-this': beerClicked === false }" src="/assets/icons/beer-can.svg" alt="" @click="beerClicked = true; openModal.beer = true;">
       <img :class="{ 'pizza':true, 'custom-cursor':true, 'click-this': beerClicked === true && pizzaClicked === false }" src="/assets/icons/pizza.svg" alt="" @click="pizzaClicked = true; openModal.pizza = true;"> -->
@@ -42,7 +42,13 @@ const changeScenery = () => {
 </template>
 
 <style scoped>
-.beer-can {
+.scenery__content {
+  
+}
+.d-none {
+  display: none;
+}
+/* .beer-can {
   height: 20%;
   left: 22%;
   position: absolute;
@@ -59,9 +65,5 @@ const changeScenery = () => {
   right: 10%;
   position: absolute;
   bottom: 10%;
-}
-
-.d-none {
-  display: none;
-}
+} */
 </style>

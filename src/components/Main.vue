@@ -43,8 +43,4 @@ const changeScenery = (i) => {
   max-width: 100%;
   position: relative;
 }
-
-.d-none {
-  display: none;
-}
 </style>
