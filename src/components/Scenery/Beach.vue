@@ -14,8 +14,8 @@ let openModal = reactive({
 <template>
   <div class="scenery__container bg-action-secondary p-L">
     <div class="scenery__content">
-      <img :class="{ 'beer-can':true, 'click-this': beerClicked === false }" src="@/assets/icons/beer-can.svg" alt="" @click="beerClicked = true; openModal.beer = true;">
-      <img :class="{ 'pizza':true, 'click-this': beerClicked === true }" src="@/assets/icons/pizza.svg" alt="">
+      <img :class="{ 'beer-can':true, 'click-this': beerClicked === false }" src="/public/assets/icons/beer-can.svg" alt="" @click="beerClicked = true; openModal.beer = true;">
+      <img :class="{ 'pizza':true, 'click-this': beerClicked === true }" src="/public/assets/icons/pizza.svg" alt="">
     </div>
   </div>
   <Modal

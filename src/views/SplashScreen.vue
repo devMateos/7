@@ -1,9 +1,9 @@
 <template>
   <div class="bg-light">
     <div class="loader">
-      <img class="heart-icon" src="@/assets/icons/heart-icon.svg" alt="">
-      <img class="heart-icon" src="@/assets/icons/heart-icon.svg" alt="">
-      <img class="heart-icon" src="@/assets/icons/heart-icon.svg" alt="">
+      <img class="heart-icon" src="/public/assets/icons/heart-icon.svg" alt="">
+      <img class="heart-icon" src="/public/assets/icons/heart-icon.svg" alt="">
+      <img class="heart-icon" src="/public/assets/icons/heart-icon.svg" alt="">
     </div>
   </div>
 </template>

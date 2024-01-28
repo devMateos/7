@@ -25,13 +25,13 @@ const closeModal = () => {
     <div class="modal p-L">
       <div class="modal__content py-M px-XL">
         <div class="modal__info">
-          <img src="@/assets/img/beer-photo.webp" alt="">
+          <img :src="`/public/assets/img/${props.img}`" alt="">
           <h3>{{ props.body }}</h3>
           <!-- <div class="modal__text">
             <h3 class="my-L">{{ props.heading }}</h3>
           </div> -->
         </div>
-        <img class="modal__close-icon" src="@/assets/icons/close-icon.svg" alt="cerrar" @click="closeModal">
+        <img class="modal__close-icon" src="/public/assets/icons/close-icon.svg" alt="cerrar" @click="closeModal">
       </div>
     </div>
 </template>

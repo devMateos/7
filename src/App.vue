@@ -10,7 +10,7 @@ let accessGranted = ref(false);
 
 <template>
   <div class="portrait bg-brand p-XXL text-light">
-    <img src="@/assets/animations/rotate-phone.webp" alt="Gira tu teléfono o amplía la ventana">
+    <img src="/public/assets/animations/rotate-phone.webp" alt="Gira tu teléfono o amplía la ventana">
     <span class="h2">Gira tu teléfono o amplía la ventana</span>
   </div>
 
