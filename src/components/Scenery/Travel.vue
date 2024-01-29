@@ -18,7 +18,7 @@ const changeScenery = () => {
 </script>
 
 <template>
-  <div class="scenery__container bg-action-primary p-L">
+  <div class="scenery__container bg-action-primary px-L py-M">
     <img :class="{ 'plane':true, 'custom-cursor':true }" src="/assets/icons/plane.svg" alt="" @click="planeClicked = true; openModal.plane = true;">
     <div class="scenery__content">
       <img :class="{ 'pin':true, 'custom-cursor':true, 'click-this': planeClicked === true && pinClicked === false }" src="/assets/icons/pin.svg" alt="" @click="pinClicked = true; openModal.pin = true;">
@@ -61,7 +61,7 @@ const changeScenery = () => {
 }
 .plane {
   animation: plane-movement 45s linear infinite;
-  height: 10%;
+  height: 12%;
   left: -6%;
   position: absolute;
   top: -10%;
