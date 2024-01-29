@@ -20,6 +20,7 @@ const changeScenery = () => {
 <template>
   <div class="scenery__container bg-action-primary p-L">
     <div class="scenery__content">
+      <img :class="{ 'plane':true, 'custom-cursor':true, 'click-this': firstPinClicked === false }" src="/assets/icons/plane.svg" alt="" @click="beerClicked = true; openModal.beer = true;">
       <img :class="{ 'pin':true, 'pin1':true, 'custom-cursor':true, 'click-this': firstPinClicked === false }" src="/assets/icons/pin.svg" alt="" @click="beerClicked = true; openModal.beer = true;">
       <img :class="{ 'pin':true, 'pin2':true, 'custom-cursor':true, 'click-this': firstPinClicked === false }" src="/assets/icons/pin.svg" alt="" @click="beerClicked = true; openModal.beer = true;">
       <!-- 
