@@ -22,7 +22,7 @@ const changeScenery = () => {
     <div class="scenery__content">
       <img :class="{ 'beer-can':true, 'custom-cursor':true, 'click-this': beerClicked === false }" src="/assets/icons/beer-can.svg" alt="" @click="beerClicked = true; openModal.beer = true;">
       <img :class="{ 'pizza':true, 'custom-cursor':true, 'click-this': beerClicked === true && pizzaClicked === false }" src="/assets/icons/pizza.svg" alt="" @click="pizzaClicked = true; openModal.pizza = true;">
-      <img v-show="beerClicked === true && pizzaClicked === true" :class="{ 'beach__next-btn':true, 'custom-cursor':true, 'click-this': true }" src="/assets/icons/beach-next.png" alt="" @click="changeScenery">
+      <img v-show="beerClicked === true && pizzaClicked === true" :class="{ 'next-btn':true, 'custom-cursor':true, 'click-this': true }" src="/assets/icons/beach-next.png" alt="" @click="changeScenery">
     </div>
   </div>
   <Modal
@@ -57,7 +57,7 @@ const changeScenery = () => {
   position: absolute;
   top: 45%;
 }
-.beach__next-btn {
+.next-btn {
   min-height: 5%;
   right: 10%;
   position: absolute;
