@@ -24,7 +24,30 @@ const changeScenery = () => {
     <div class="curtains">
       <div :class="{ 'curtain1': true, 'curtain--movement': openCurtains === false }"></div>
       <div :class="{ 'curtain2': true, 'curtain--movement': openCurtains === false }"></div>
+
+      <div class="curtains__modal p-L">
+        <h2 class="text-light">Por todos estos momentos</h2>
+        <div class="curtains__carousel">
+          <div class="carousel__item1">
+            <img src="/assets/img/curtains/photo1.webp" alt="">
+            <img src="/assets/img/curtains/photo2.webp" alt="">
+            <img src="/assets/img/curtains/photo3.webp" alt="">
+            <img src="/assets/img/curtains/photo4.webp" alt="">
+            <img src="/assets/img/curtains/photo5.webp" alt="">
+          </div>
+          <div class="carousel__item2">
+            <img src="/assets/img/curtains/photo1.webp" alt="">
+            <img src="/assets/img/curtains/photo2.webp" alt="">
+            <img src="/assets/img/curtains/photo3.webp" alt="">
+            <img src="/assets/img/curtains/photo4.webp" alt="">
+            <img src="/assets/img/curtains/photo5.webp" alt="">
+          </div>
+        </div>
+        <div class="open-curtains__btn"></div>
+      </div>
+
     </div>
+
     <img :class="{ 'plane':true, 'custom-cursor':true }" src="/assets/icons/plane.svg" alt="" @click="planeClicked = true; openModal.plane = true;">
     <div class="scenery__content">
       <img :class="{ 'pin':true, 'custom-cursor':true, 'click-this': planeClicked === true && pinClicked === false }" src="/assets/icons/pin.svg" alt="" @click="pinClicked = true; openModal.pin = true;">
@@ -48,9 +71,13 @@ const changeScenery = () => {
 </template>
 
 <style scoped>
+.scenery__container {
+  background-color: var(--color-darker);
+  overflow: hidden;
+}
+
 .curtains {
   display: flex;
-  /* gap: 2px; */
   height: 100vh;
   left: 0;
   position: absolute;
@@ -79,10 +106,57 @@ const changeScenery = () => {
   transform: translateX(0);
 }
 
-.scenery__container {
-  background-color: var(--color-darker);
-  overflow: hidden;
+.curtains__modal {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  left: 0;
+  justify-content: space-evenly;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100vw;
+  z-index: 10;
 }
+.curtains__modal > * {
+  z-index: 1;
+}
+.curtains__modal::before {
+  background-color: var(--color-darker);
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: .8;
+  top: 0;
+  position: absolute;
+  width: 100%;
+}
+.curtains__carousel {
+  display: flex;
+  height: 50%;
+  position: relative;
+  width: 100vw;
+}
+.curtains__carousel > div {
+  display: flex;
+  height: 100%;
+  justify-content: space-around;
+  position: absolute;
+  right: -100%;
+  width: 100%;
+}
+.carousel__item1 {
+  animation: carousel 30s linear infinite;
+}
+.carousel__item2 {
+  animation: carousel 30s linear 15s infinite;
+}
+.curtains__carousel > div > img {
+  border: var(--border-standard);
+  border-radius: var(--border-radius-standard);
+  width: 16.7%;
+}
+
 .scenery__content {
   background-image: url("/assets/img/travel-background.webp");
   box-shadow: none;
@@ -90,26 +164,15 @@ const changeScenery = () => {
 .d-none {
   display: none;
 }
-.pin {
-  height: 7%;
-  left: 46.2%;
-  position: absolute;
-  top: 34.6%;
+
+@keyframes carousel {
+  100% {
+    transform: translateX(-200vw);
+  }
 }
-.plane {
-  animation: plane-movement 45s linear infinite;
-  height: 12%;
-  left: -6%;
-  position: absolute;
-  top: -10%;
-  z-index: 2;
-}
-.plane:hover {
-  transform: scale(1.2);
-}
-@keyframes plane-movement {
-  100%{
-    transform: translate(110vw, 110vh);
+@keyframes carousel2 {
+  100% {
+    transform: translateX(-300vw);
   }
 }
 .next-btn {
