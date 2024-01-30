@@ -13,19 +13,19 @@ let openModal = reactive({
   pin: false,
 });
 
-const emit = defineEmits(['change-scenery']);
+/* const emit = defineEmits(['change-scenery']);
 const changeScenery = () => {
   emit('change-scenery', 'circus');
-}
+} */
 </script>
 
 <template>
-  <div class="scenery__container bg-action-primary px-L py-M">
+  <div class="scenery__container px-L py-M">
     <div class="curtains">
       <div :class="{ 'curtain1': true, 'curtain--movement': openCurtains === false }"></div>
       <div :class="{ 'curtain2': true, 'curtain--movement': openCurtains === false }"></div>
 
-      <div class="curtains__modal p-L">
+      <div :class="{'curtains__modal': true, 'p-L': true, 'd-none': openCurtains === true }">
         <h2 class="text-light">Por todos estos momentos</h2>
         <div class="curtains__carousel">
           <div class="carousel__item1">
@@ -43,39 +43,21 @@ const changeScenery = () => {
             <img src="/assets/img/curtains/photo5.webp" alt="">
           </div>
         </div>
-        <div class="open-curtains__btn"></div>
+        <div>
+          <img src="/assets/icons/beach-next.png" class="open-curtains__btn click-this custom-cursor" alt="" @click="openCurtains = true">
+        </div>
       </div>
 
     </div>
 
-    <img :class="{ 'plane':true, 'custom-cursor':true }" src="/assets/icons/plane.svg" alt="" @click="planeClicked = true; openModal.plane = true;">
     <div class="scenery__content">
-      <img :class="{ 'pin':true, 'custom-cursor':true, 'click-this': planeClicked === true && pinClicked === false }" src="/assets/icons/pin.svg" alt="" @click="pinClicked = true; openModal.pin = true;">
-      <img v-show="planeClicked === true && pinClicked === true" :class="{ 'next-btn':true, 'custom-cursor':true, 'click-this': true }" src="/assets/icons/beach-next.png" alt="" @click="changeScenery">
+      
     </div>
   </div>
-  <Modal
-    :class="{ 'd-none': openModal.plane === false }"
-    :img="'granada-photo.webp'"
-    :heading="'Por todos los viajes que nos quedan por hacer'"
-    :body="'Por todos esos sitios que descubriremos cuando tengamos la oportunidad y por todos aquellos en los que repetiremos. Por Granada, Asturias, Tailandia y París'"
-    @closeModal="openModal.plane = false"
-  />
-  <Modal
-    :class="{ 'd-none': openModal.pin === false }"
-    :img="'murcia-photo.webp'"
-    :heading="'Mientras tanto...'"
-    :body="'Siempre podremos volver a aquellos lugares donde ya hemos sido felices 🍋'"
-    @closeModal="openModal.pin = false"
-  />
 </template>
 
 <style scoped>
-.scenery__container {
-  background-color: var(--color-darker);
-  overflow: hidden;
-}
-
+/* CURTAINS */
 .curtains {
   display: flex;
   height: 100vh;
@@ -112,6 +94,7 @@ const changeScenery = () => {
   height: 100vh;
   left: 0;
   justify-content: space-evenly;
+  overflow: hidden;
   position: absolute;
   text-align: center;
   top: 0;
@@ -157,9 +140,24 @@ const changeScenery = () => {
   width: 16.7%;
 }
 
+/* SCENERY */
+.scenery__container {
+  background-color: var(--color-darker);
+  background-image: url("/assets/img/circus-background.webp");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+  width: 100vw;
+}
 .scenery__content {
-  background-image: url("/assets/img/travel-background.webp");
+  
   box-shadow: none;
+}
+.open-curtains__btn {
+  height: 4.5vh;
+  margin: 0 auto;
 }
 .d-none {
   display: none;
@@ -170,15 +168,5 @@ const changeScenery = () => {
     transform: translateX(-200vw);
   }
 }
-@keyframes carousel2 {
-  100% {
-    transform: translateX(-300vw);
-  }
-}
-.next-btn {
-  min-height: 5%;
-  right: 9%;
-  position: absolute;
-  bottom: 10%;
-}
+
 </style>

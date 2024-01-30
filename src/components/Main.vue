@@ -18,12 +18,12 @@ const changeScenery = (i) => {
     <Beach
       v-if="sceneryActive === 'beach'"
       @changeScenery="changeScenery"
-      />
-      <Travel
+    />
+    <Travel
       v-if="sceneryActive === 'travel'"      
       @changeScenery="changeScenery"
-      />
-      <Circus
+    />
+    <Circus
       v-if="sceneryActive === 'circus'"      
       @changeScenery="changeScenery"
     />

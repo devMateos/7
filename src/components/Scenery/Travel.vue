@@ -54,13 +54,13 @@ const changeScenery = () => {
   display: none;
 }
 .pin {
-  height: 7%;
-  left: 46.2%;
+  height: 8.5%;
+  left: 46.1%;
   position: absolute;
-  top: 34.6%;
+  top: 33.2%;
 }
 .plane {
-  animation: plane-movement 45s linear infinite;
+  animation: plane-movement 30s linear infinite;
   height: 12%;
   left: -6%;
   position: absolute;
