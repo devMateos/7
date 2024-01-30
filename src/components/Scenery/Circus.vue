@@ -3,6 +3,8 @@ import Modal from '@/components/Modal/Index.vue'
 
 import { ref, reactive } from 'vue'
 
+let openCurtains = ref(false);
+
 let planeClicked = ref(false);
 let pinClicked = ref(false);
 
@@ -19,6 +21,10 @@ const changeScenery = () => {
 
 <template>
   <div class="scenery__container bg-action-primary px-L py-M">
+    <div class="curtains">
+      <div :class="{ 'curtain1': true, 'curtain--movement': openCurtains === false }"></div>
+      <div :class="{ 'curtain2': true, 'curtain--movement': openCurtains === false }"></div>
+    </div>
     <img :class="{ 'plane':true, 'custom-cursor':true }" src="/assets/icons/plane.svg" alt="" @click="planeClicked = true; openModal.plane = true;">
     <div class="scenery__content">
       <img :class="{ 'pin':true, 'custom-cursor':true, 'click-this': planeClicked === true && pinClicked === false }" src="/assets/icons/pin.svg" alt="" @click="pinClicked = true; openModal.pin = true;">
@@ -42,8 +48,39 @@ const changeScenery = () => {
 </template>
 
 <style scoped>
+.curtains {
+  display: flex;
+  /* gap: 2px; */
+  height: 100vh;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: 3;
+}
+.curtain1, .curtain2 {
+  background-image: url("/assets/img/curtains.webp");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  transition: 2s ease-out;
+  width: 50%;
+}
+.curtain1 {
+  background-position: right;
+  transform: translateX(-100%);
+}
+.curtain2 {
+  background-position: left;
+  transform: translateX(100%);
+}
+.curtain--movement {
+  transform: translateX(0);
+}
+
 .scenery__container {
-  background-color: #825209;
+  background-color: var(--color-darker);
   overflow: hidden;
 }
 .scenery__content {
