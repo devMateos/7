@@ -2,15 +2,40 @@
 import Beach from "@/components/Scenery/Beach.vue"
 import Travel from "./Scenery/Travel.vue";
 import Circus from "./Scenery/Circus.vue";
-/* import NavMenu from "@/components/NavMenu.vue" */
 
 import { ref } from 'vue'
+import SecretScenery from "./Scenery/SecretScenery.vue";
 let sceneryActive = ref('');
 sceneryActive.value = 'beach'
 const changeScenery = (i) => {
   sceneryActive.value = i;
 }
 
+/* CHEAT CODE */
+let cheatCode = "contigo";
+let writtenLetter = [];
+let writtenWord;
+
+window.addEventListener('keydown', (pressedKey) => {
+  const index = writtenLetter.length;
+  
+  if (cheatCode[index] === pressedKey.key) {
+    writtenLetter.push(pressedKey.key);
+    writtenWord = writtenLetter.join("");
+  } else {
+    writtenLetter = [];
+    writtenWord = "";
+  }
+
+  if (writtenWord === cheatCode) {
+    secretFunction();
+  }
+})
+
+function secretFunction() {
+  sceneryActive.value = "secret scenery";
+  console.log("secreto");
+}
 </script>
 
 <template>
@@ -26,6 +51,9 @@ const changeScenery = (i) => {
     <Circus
       v-if="sceneryActive === 'circus'"      
       @changeScenery="changeScenery"
+    />
+    <SecretScenery
+      v-if="sceneryActive === 'secret scenery'"
     />
   </div>
     <!-- <NavMenu/> -->
