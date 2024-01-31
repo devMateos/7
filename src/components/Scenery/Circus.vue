@@ -55,7 +55,7 @@ const changeScenery = () => {
         <img src="/assets/img/circus/photo2.webp" alt="">
         <img src="/assets/img/circus/photo3.webp" alt="">
       </div>
-      <div class="scenery__items"></div>
+      <!-- <div class="scenery__items"></div> -->
     </div>
   </div>
 </template>
@@ -184,6 +184,7 @@ const changeScenery = () => {
 .scenery__imgs-container img {
   border: var(--border-standard);
   border-radius: var(--border-radius-standard);
+  box-shadow: 20px 50px 20px rgba(28, 28, 28, .6);
   max-height: 100%;
   max-width: 100%;
 }
