@@ -8,7 +8,7 @@ const props = defineProps({
 });
 
 const today = new Date;
-const februarySeventh = new Date("01-07-2024");
+const februarySeventh = new Date("02-07-2024");
 
 let passwordEntered = ref();
 let access = ref();
