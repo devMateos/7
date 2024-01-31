@@ -5,8 +5,6 @@ import { ref, reactive } from 'vue'
 
 let openCurtains = ref(false);
 
-let planeClicked = ref(false);
-let pinClicked = ref(false);
 
 let openModal = reactive({
   plane: false,
@@ -51,7 +49,13 @@ const changeScenery = () => {
     </div>
 
     <div class="scenery__content">
-      
+      <h2 class="text-light">🤡 Pero sobre todo por todos estos:</h2>
+      <div class="scenery__imgs-container">
+        <img src="/assets/img/circus/photo1.webp" alt="">
+        <img src="/assets/img/circus/photo2.webp" alt="">
+        <img src="/assets/img/circus/photo3.webp" alt="">
+      </div>
+      <div class="scenery__items"></div>
     </div>
   </div>
 </template>
@@ -62,6 +66,7 @@ const changeScenery = () => {
   display: flex;
   height: 100vh;
   left: 0;
+  overflow: hidden;
   position: absolute;
   top: 0;
   width: 100vw;
@@ -139,6 +144,15 @@ const changeScenery = () => {
   border-radius: var(--border-radius-standard);
   width: 16.7%;
 }
+.open-curtains__btn {
+  height: 4.5vh;
+  margin: 0 auto;
+}
+@keyframes carousel {
+  100% {
+    transform: translateX(-200vw);
+  }
+}
 
 /* SCENERY */
 .scenery__container {
@@ -152,21 +166,33 @@ const changeScenery = () => {
   width: 100vw;
 }
 .scenery__content {
-  
+  align-items: center;
   box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
 }
-.open-curtains__btn {
-  height: 4.5vh;
-  margin: 0 auto;
+.scenery__imgs-container {
+  align-items: end;
+  display: grid;
+  gap: var(--spacing-M);
+  grid-template-columns: 3fr 5fr 3fr;
+  max-height: 50%;
+  width: 70%;
+}
+.scenery__imgs-container img {
+  border: var(--border-standard);
+  border-radius: var(--border-radius-standard);
+  max-height: 100%;
+  max-width: 100%;
+}
+.scenery__items {
+  height: 20%;
 }
 .d-none {
   display: none;
 }
 
-@keyframes carousel {
-  100% {
-    transform: translateX(-200vw);
-  }
-}
 
 </style>
